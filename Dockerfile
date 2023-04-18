@@ -12,8 +12,8 @@ FROM alpine:latest
 
 RUN apk update && apk add ca-certificates && rm -rf /var/cache/apk/*
 
-EXPOSE 8090
+EXPOSE 443
 
 COPY --from=download /pocketbase /usr/local/bin/pocketbase
 
-ENTRYPOINT ["/usr/local/bin/pocketbase", "serve", "--http=0.0.0.0:8090", "--dir=/pb_data"]
+ENTRYPOINT ["/usr/local/bin/pocketbase", "serve", "--http=0.0.0.0:443", "--dir=/pb_data"]
